@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.s13sh.bookmymovie.dto.User;
+import com.s13sh.bookmymovie.service.implementation.UserService;
 
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 
 @Controller
@@ -16,6 +18,9 @@ public class GeneralController {
 
     @Autowired
     User user;
+
+    @Autowired
+    UserService service;
 
     @GetMapping("/")
     public String loadHome() {
@@ -34,11 +39,12 @@ public class GeneralController {
     }
 
     @PostMapping("/signup")
-    public String signup(@Valid User user, BindingResult result) {
+    public String signup(@Valid User user, BindingResult result, ModelMap map, HttpSession session) {
         if (result.hasErrors())
             return "Signup";
         else
-            return "redirect:/login";
+            return service.signup(user, result, map, session);
+
     }
 
 }
