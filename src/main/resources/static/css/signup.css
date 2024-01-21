@@ -42,3 +42,41 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
+
+.container {
+    max-width: 400px;
+    /* Adjust the maximum width of the container */
+    margin: auto;
+    /* Center the container */
+}
+
+form {
+    background-color: #fff;
+    /* White background for the form */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Light shadow effect */
+}
+
+h2 {
+    color: #007bff;
+    /* Blue heading color */
+}
+
+/* Style for form fields */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Style for the Sign Up button */
+.btn-primary {
+    background-color: #007bff;
+    /* Blue color for the button */
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    /* Darker blue on hover */
+}
