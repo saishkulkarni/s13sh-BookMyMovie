@@ -24,4 +24,8 @@ public class UserDao {
         return repository.existsByMobile(mobile);
     }
 
+    public User findByEmail(String email) {
+        return repository.findByEmail(email);
+    }
+
 }

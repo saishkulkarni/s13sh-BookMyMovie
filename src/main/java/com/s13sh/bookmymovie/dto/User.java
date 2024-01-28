@@ -24,13 +24,11 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @NotEmpty(message = "* this is required field")
     @Size(min = 3, max = 10, message = "* Enter between 3~10 characters")
     private String name;
     @NotEmpty(message = "* this is required field")
     @Email(message = "* Enter proper email address")
     private String email;
-    @NotEmpty(message = "* this is required field")
     @Size(min = 3, max = 10, message = "* Enter between 3~10 characters")
     private String password;
     @NotEmpty(message = "* this is required field")

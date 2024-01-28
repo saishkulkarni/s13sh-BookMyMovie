@@ -9,4 +9,6 @@ import jakarta.servlet.http.HttpSession;
 
 public interface UserService {
     public String signup(User user, BindingResult result, ModelMap map, HttpSession session);
+
+    public String login(String email, String password, HttpSession session);
 }

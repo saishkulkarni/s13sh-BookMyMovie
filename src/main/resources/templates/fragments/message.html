@@ -1,0 +1,7 @@
+<div th:if="${session.successMessage}">
+  <span th:text="${session.successMessage}"></span>
+</div>
+<div th:if="${session.failMessage}">
+  <span th:text="${session.failMessage}"></span>
+</div>
+<th:block th:text="${@sessionMessageRemover.removeMessage()}"></th:block>

@@ -28,7 +28,6 @@
             class="form-control"
             id="name"
             name="name"
-            required
           />
           <span th:errors="*{name}"></span>
         </div>
@@ -36,12 +35,11 @@
         <div class="form-group">
           <label for="mobile">Mobile:</label>
           <input
-            type="tel"
+            type="number"
             th:field="*{mobile}"
             class="form-control"
             id="mobile"
             name="mobile"
-            required
           />
           <span th:errors="*{mobile}"></span>
         </div>
@@ -54,7 +52,6 @@
             class="form-control"
             id="email"
             name="email"
-            required
           />
           <span th:errors="*{email}"></span>
         </div>
@@ -67,7 +64,6 @@
             class="form-control"
             id="dob"
             name="dob"
-            required
           />
           <span th:errors="*{dob}"></span>
         </div>
@@ -79,7 +75,6 @@
             id="gender"
             th:field="*{gender}"
             name="gender"
-            required
           >
             <option value="male">Male</option>
             <option value="female">Female</option>
@@ -96,7 +91,6 @@
             class="form-control"
             id="password"
             name="password"
-            required
           />
           <span th:errors="*{password}"></span>
         </div>

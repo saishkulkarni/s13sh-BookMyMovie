@@ -30,7 +30,26 @@ public class UserServiceImpl implements UserService {
             user.setPassword(AES.encrypt(user.getPassword(), "123"));
             user.setRole("USER");
             dao.save(user);
+            session.setAttribute("successMessage", "Account Created successfully");
             return "redirect:/login";
+        }
+    }
+
+    @Override
+    public String login(String email, String password, HttpSession session) {
+        User user = dao.findByEmail(email);
+        if (user == null) {
+            session.setAttribute("failMessage", "Invalid email");
+            return "redirect:/login";
+        } else {
+            if (password.equals(AES.decrypt(user.getPassword(), "123"))) {
+                session.setAttribute("user", user);
+                session.setAttribute("successMessage", "Login successful");
+                return "redirect:/";
+            } else {
+                session.setAttribute("failMessage", "Invalid password");
+                return "redirect:/login";
+            }
         }
     }
 

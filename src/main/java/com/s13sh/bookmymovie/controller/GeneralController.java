@@ -6,6 +6,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.s13sh.bookmymovie.dto.User;
 import com.s13sh.bookmymovie.service.implementation.UserService;
@@ -47,4 +48,15 @@ public class GeneralController {
 
     }
 
+    @PostMapping("/login")
+    public String login(@RequestParam String email, @RequestParam String password, HttpSession session) {
+        return service.login(email, password, session);
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.removeAttribute("user");
+        session.setAttribute("successMessage", "Logout Successfully");
+        return "redirect:/";
+    }
 }
